@@ -34,5 +34,3 @@ You can reach me on [Twitter @rajinh24](https://twitter.com/rajinh24)
 ## License
 
 [![Licence](https://img.shields.io/github/license/rajks24/markdown-badges?style=flat-square&logo=github)](./LICENSE)
-
-<hr>

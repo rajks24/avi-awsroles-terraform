@@ -1,13 +1,21 @@
-# Policy name match to the policy file name
+# Avicontroller IAM policies
 variable "avicontroller_policies" {
-  type        = list(string)
+  type = map(object({
+    name        = string
+    description = string
+    policy      = string
+  }))
   description = "avicontroller policy list"
-  default     = ["avicontroller-ec2-policy", "avicontroller-s3-policy", "avicontroller-iam-policy", "avicontroller-r53-policy", "avicontroller-asg-policy", "avicontroller-sqs-sns-policy", "avicontroller-kms-policy"]
+  default     = {}
 }
 
-# Policy name match to the policy file name
+# vmimport policies to be used for managing VM for SE
 variable "vmimport_policies" {
-  type        = list(string)
+  type = map(object({
+    name        = string
+    description = string
+    policy      = string
+  }))
   description = "vmimport policy list"
-  default     = ["vmimport-role-policy", "avicontroller-kms-vmimport"]
+  default     = {}
 }

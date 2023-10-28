@@ -9,7 +9,7 @@ Project for the terraform scripts to implement Avi roles required for configurin
 This project contains the Terraform scripts. These have been tested in AWS environment to install Avi version 22.1.3 or later.
 It contains the **iam-policies** which are a copy from the [devops](https://github.com/avinetworks/devops/tree/master/aws/iam-policies) git repo from Avi.
 
-In the project, the `variables.tf` provides option to specify the iam policies to configure **vmimport** and **AviController-Refined-Role** role. In future, if there is any change in the refined iam-policies for Avi versions, then operators can easily add/change the iam-policies in the terraform script.
+In the project, the `terraform.tfvars` provides option to specify the iam policies to configure for  **vmimport** and **AviController-Refined-Role** role. This resource is watching the `variables.tf` for the format and uses the defined roles to fetch the JSON files from **iam-policies** to configure in AWS. In future, if there is any change in the refined iam-policies for Avi versions, then operators can easily add/change the iam-policies in folder and change `terraform.tfvars` to update the terraform script.
 
 We can use the s3 bucket (as configure in `backend.tf`) as the backend and dynamoDB table for the lock file, so that we get persistence for the terraform state. The script also creates the EC2 instance profile and the roles would be available to attach with Avi-controller EC2 instance which can be provisioned from AWS Marketplace.
 
